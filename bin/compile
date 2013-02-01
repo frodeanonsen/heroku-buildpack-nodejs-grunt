@@ -182,11 +182,11 @@ if [ -f $BUILD_DIR/grunt.js ] || [ -f $BUILD_DIR/Gruntfile.js ] || [ -f $BUILD_D
 
   if [ -f $BUILD_DIR/node_modules/grunt/bin/grunt ]; then
     echo "-----> Found grunt, running grunt heroku task"
-    set BUILD_ENV="heroku" && $BUILD_DIR/node_modules/grunt/bin/grunt heroku
+    export BUILD_ENV="heroku" && $BUILD_DIR/node_modules/grunt/bin/grunt heroku
   else 
     if [ -f $BUILD_DIR/node_modules/grunt-cli/bin/grunt ]; then
       echo "-----> Found grunt-cli, running grunt heroku task"
-      set BUILD_ENV="heroku" && $BUILD_DIR/node_modules/grunt-cli/bin/grunt heroku
+      export BUILD_ENV="heroku" && $BUILD_DIR/node_modules/grunt-cli/bin/grunt heroku
     else
       echo "-----> No grunt binary (grunt/grunt-cli) found"
     fi
